@@ -43,6 +43,7 @@ fi
 read -r -p "Now we will run Convert2RHEL [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
+    yum update
     sudo yum -y install -y gce-google-rhui-client-el7-x86_64-stable.rpm -y
     sudo sed -i 's/$releasever/7Server/g' /etc/yum.repos.d/rh-cloud.repo
 #   sudo sed -i 's/8/8.6/g' /etc/system-release
