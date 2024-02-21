@@ -26,6 +26,7 @@ else
         if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
         then
                 sudo yum -y install convert2rhel
+                sudo yum -y dhclient dhcp-common dhcp-libs gettext gettext-libs mokutil shim-x64
 #               sudo yum -y install iptables iptables-ebtables iptables-libs krb5-libs libnghttp2 python2 python2-libs python2-pip python2-pip-wheel python2-setuptools python2-setuptools-wheel python36 qemu-guest-agent
         else
         exit 0
