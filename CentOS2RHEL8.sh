@@ -26,7 +26,7 @@ else
         if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
         then
                 sudo yum -y install convert2rhel
-                sudo yum -y install iptables iptables-ebtables iptables-libs krb5-libs libnghttp2 python2 python2-libs python2-pip python2-pip-wheel python2-setuptools python2-setuptools-wheel python36 qemu-guest-agent
+                sudo yum -y install iptables iptables-ebtables iptables-libs krb5-libs libnghttp2 python2 python2-libs python2-pip python2-pip-wheel python2-setuptools python2-setuptools-wheel python36 qemu-guest-agent bash bind-export-libs ca-certificates device-mapper device-mapper-libs dmidecode gnupg2 gnupg2-smime gnutls grub2-common grub2-efi-x64 grub2-tools grub2-tools-efi grub2-tools-extra grub2-tools-minimal gzip iproute krb5-libs libcap libgcrypt libksba libnghttp2 libsemanage libssh libssh-config libtasn1 libxml2 nspr openssl openssl-libs pcre2 shim-x64 sqlite-libs vim-common vim-enhanced vim-filesystem vim-minimal xz xz-libs
         else
         exit 0
         fi
