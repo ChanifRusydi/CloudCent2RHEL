@@ -38,8 +38,8 @@ else
         read -r -p "Lets Update your Kernel and reboot? [y/N] " response
         if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
         then
-                sudo yum install kernel-core-4.18.0-535.el8 -y
-                echo "kernel-core-4.18.0-535.el8" > kupdate.txt
+                sudo yum install kernel-core-4.18.0-540.el8 -y
+                echo "kernel-core-4.18.0-540.el8" > kupdate.txt
                 echo "We Now must reboot your VM"
                 # sudo reboot
                 exit 0
