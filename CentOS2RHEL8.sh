@@ -51,7 +51,7 @@ then
     sudo yum -y install -y google-rhui-client-rhel8-4.0-1.noarch.rpm -y
     sudo sed -i 's/$releasever/8/g' /etc/yum.repos.d/rh-cloud.repo
     sudo sed -i 's/8/8.6/g' /etc/system-release
-    sudo convert2rhel --debug  --enablerepo rhui-rhel-7-server-rhui-rpms --no-rhsm -y    
+    sudo convert2rhel --debug  --enablerepo rhui-rhel-8-for-x86_64-appstream-rhui-rpms --enablerepo rhui-rhel-8-for-x86_64-baseos-rhui-rpms --no-rhsm -y
 else
     exit 0
 fi
