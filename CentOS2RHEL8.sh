@@ -55,8 +55,3 @@ then
 else
     exit 0
 fi
-
-
-# notes:rpm -qi centos-stream-release | grep ^Version
-# CentOS Stream release 8
-[micurtis@centos-stream-8-2 ~]$ 
