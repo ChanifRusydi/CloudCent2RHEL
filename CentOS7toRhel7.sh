@@ -1,5 +1,10 @@
 #!/bin/bash
 # Centos 7 Stream to RHEL 7
+export CONVERT2RHEL_UNSUPPORTED_INCOMPLETE_ROLLBACK=1
+export CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP=1
+export SKIP_OUTDATED_PACKAGE_CHECK=1
+export SKIP_PACKAGE_NOT_UP_TO_DATE=1
+export CONVERT2RHEL_PACKAGE_NOT_UP_TO_DATE_CHECK_SKIP=1
 if [ -f kupdate.txt ]; then
     echo "Restarting"
 else
@@ -44,11 +49,6 @@ read -r -p "Now we will run Convert2RHEL [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
     yum update
-    export CONVERT2RHEL_UNSUPPORTED_INCOMPLETE_ROLLBACK=1
-    export CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP=1
-    export SKIP_OUTDATED_PACKAGE_CHECK=1
-    export SKIP_PACKAGE_NOT_UP_TO_DATE=1
-    export CONVERT2RHEL_PACKAGE_NOT_UP_TO_DATE_CHECK_SKIP=1
     sudo yum -y install -y gce-google-rhui-client-el7-x86_64-stable.rpm -y
     sudo sed -i 's/$releasever/7Server/g' /etc/yum.repos.d/rh-cloud.repo
 #   sudo sed -i 's/8/8.6/g' /etc/system-release
