@@ -42,8 +42,8 @@ yum install -y dhclient dhcp-common dhcp-libs gettext gettext-libs mokutil shim-
 
 sudo convert2rhel --debug  --enablerepo rhui-rhel-7-server-rhui-rpms --no-rhsm -y
 
-and restart
-GCP CentOS 8 Stream 
+and restart 
+
 sudo su
 bash <(curl -s https://raw.githubusercontent.com/MCurtisRedhat/CloudCent2RHEL/main/CentOS2RHEL8.sh)
 GCP Rocky 8 raw.githubusercontent.com/MCurtisRedhat/CloudCent2RHEL/main/Rocky82RHEL8.sh
