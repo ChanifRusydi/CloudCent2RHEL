@@ -39,6 +39,7 @@ bash <(curl -s https://raw.githubusercontent.com/MCurtisRedhat/CloudCent2RHEL/ma
 In some cases if this fails you many need to run
 
 yum install -y dhclient dhcp-common dhcp-libs gettext gettext-libs mokutil shim-x64
+
 sudo convert2rhel --debug  --enablerepo rhui-rhel-7-server-rhui-rpms --no-rhsm -y
 
 and restart
