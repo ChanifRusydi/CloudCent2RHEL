@@ -33,26 +33,14 @@ else
         if [ "$kernel_version" -eq "119" ]; then
                 echo "Your Kernel is up to date"
         else
-        echo "Your current kernel is not the latest version"
-        read -r -p "Lets Update your Kernel and reboot? [y/N] (update to)" response
-        if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
-        then
-                sudo yum install kernel-3.10.0-1160.119.1.el7 -y
-                echo "kernel-3.10.0-1160.119.1.el7" > kupdate.txt
-                echo "We Now must reboot your VM"
-                sudo reboot
+                echo "Your current kernel is not the latest version"
+                read -r -p "Lets Update your Kernel and reboot? [y/N] (update to)" response
+                if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+                then
+                        sudo yum install kernel-3.10.0-1160.119.1.el7 -y
+                        echo "kernel-3.10.0-1160.119.1.el7" > kupdate.txt
+                        echo "We Now must reboot your VM"
+                        sudo reboot
+                fi
         fi
 fi
-read -r -p "Now we will run Convert2RHEL [y/N] " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
-then
-    sudo yum update
-    sudo yum install -y dhclient dhcp-common dhcp-libs gettext gettext-libs mokutil shim-x64
-    sudo yum -y install -y gce-google-rhui-client-el7-x86_64-stable.rpm -y
-    sudo sed -i 's/$releasever/7Server/g' /etc/yum.repos.d/rh-cloud.repo
-    sudo convert2rhel --debug --enablerepo rhui-rhel-7-server-rhui-rpms --no-rhsm -y
-else
-    exit 0
-fi
-
-# CentOS 7.9 to RHEL 7.9
