@@ -17,15 +17,11 @@ else
         read -r -p "Run the YUM update? [y/N] " response
         if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
                 sudo yum -y update
-        else
-        exit 0
         fi
         read -r -p "Now lets run the Convert2RHEL Installer [y/N] " response
         if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
         then
                 sudo yum -y install convert2rhel
-        else
-        exit 0
         fi
 fi
 if [ -f kupdate.txt ]; then
@@ -36,7 +32,6 @@ else
         kernel_version=$(uname -r | awk -F'.' '{print $4}')
         if [ "$kernel_version" -eq "119" ]; then
                 echo "Your Kernel is up to date"
-                exit 0
         else
         echo "Your current kernel is not the latest version"
         read -r -p "Lets Update your Kernel and reboot? [y/N] (update to)" response
@@ -45,8 +40,7 @@ else
                 sudo yum install kernel-3.10.0-1160.119.1.el7 -y
                 echo "kernel-3.10.0-1160.119.1.el7" > kupdate.txt
                 echo "We Now must reboot your VM"
-                # sudo reboot
-                exit 0
+                sudo reboot
         fi
 fi
 read -r -p "Now we will run Convert2RHEL [y/N] " response
