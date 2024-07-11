@@ -33,7 +33,7 @@ if [ -f kupdate.txt ]; then
 else
         echo "Checking your Kernel"
         echo $(uname -r)
-        kernel_version=$(uname -r | awk -F'.' '{print "$4}')
+        kernel_version=$(uname -r | awk -F'.' '{print $4}')
         if [ "$kernel_version" -eq "119" ]; then
                 echo "Your Kernel is up to date"
                 exit 0
