@@ -32,7 +32,7 @@ if [ -f kupdate.txt ]; then
         echo "Welcome back lets continue preparing your system"
 else
         echo "Checking your Kernel"
-        uname -r
+        echo $(uname -r)
         kernel_version=$(uname -r | awk -F'.' '{print "$4}')
         if [ "$kernel_version" -eq "119" ]; then
                 echo "Your Kernel is up to date"
@@ -60,3 +60,5 @@ then
 else
     exit 0
 fi
+
+# CentOS 7.9 to RHEL 7.9
